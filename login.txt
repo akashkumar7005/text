@@ -1,0 +1,45 @@
+import React, { useState } from 'react';
+
+function userFormInputs(initialValue)
+{
+    const [value, setValue] =useState('');
+    function handleChange(e){
+        setValue(e.target.value);
+    }
+    return{
+        value,
+        onChange:handleChange
+    };
+}
+    function LoginForm()
+    {
+        const email=userFormInputs('');
+        const password=userFormInputs('');
+      
+        return(
+            <form>
+                <div>Email:</div>
+                <div>
+                    <input type="text" value={email.value} onChange={email.onChange}/>
+                </div>
+                <br/>
+                <div>Password:</div>
+                <div>
+                    <input type="text" value={password.value} onChange={password.onChange}/>
+                </div>
+                <p>
+                    <strong>
+                        <em>Email:</em>
+                    </strong>
+                    {email.value}
+                    <strong>
+                        <em>Password:</em>
+                    </strong>
+                    {password.value}
+                </p>
+            </form>
+        );
+    }
+
+
+export default LoginForm;
